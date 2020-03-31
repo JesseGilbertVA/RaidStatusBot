@@ -47,11 +47,14 @@ if (current_date == 0 && current_hour >= 20 && current_hour <= 22){
 //Main function of bot. Checks for messages on a loop. If conditions of If or Else If statements are met, reply to who pinged the individual in a busy state.
 client.on('message', (message)=>{
     //Raid Replies
-    if (raidStatus == true && message.mentions.users.get("152228909797212160")  ){
-        message.reply('Ryan is currently raiding. Raid hours are Friday 9PM to 12AM and Sunday 4PM to 7PM. Please try him again afterwards.');
-    }
-    else if (raidStatus == true && message.mentions.users.get("130491344568188928")  ){
-        message.reply('John is currently raiding. Raid hours are Friday 9PM to 12AM and Sunday 4PM to 7PM. Please try him again afterwards.');
+    if(raidStatus == true) {
+        //It's raid time!
+        if (message.mentions.users.get("152228909797212160")) {
+            message.reply('Ryan is currently raiding. Raid hours are Friday 9PM to 12AM and Sunday 4PM to 7PM. Please try him again afterwards.');
+        }
+        else if (message.mentions.users.get("130491344568188928")) {
+            message.reply('John is currently raiding. Raid hours are Friday 9PM to 12AM and Sunday 4PM to 7PM. Please try him again afterwards.');
+        }
     }
     //DnD Replies
     else if (dndStatus == true && message.mentions.users.get("152228909797212160")  ){
