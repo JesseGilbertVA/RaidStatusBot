@@ -73,7 +73,7 @@ client.on('message', (message)=>{
         }  
     }
     //Bot reply
-    else if (message.mentions.users.get("693967939224731678")){
+    else if (message.mentions.users.get("693967939224731678" && message.author != client.user)){
         message.reply(botResponses[Math.floor(Math.random() * botResponses.length)])
     }
     else if (message.content.includes('KUNAI WIT CHAIN')){
