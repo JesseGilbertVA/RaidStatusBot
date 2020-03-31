@@ -16,13 +16,6 @@ const botResponses = [
     "Ultimately, I feel World of Warcraft is a subpar game, but I am still responsible of informing the people when John and Ryan are playing."
 
 ]
-//var  = botResponses[Math.floor(Math.random() * botResponses.length)]
-
-//var botReply = function () {
-  //  num = Math.floor(Math.random() * botResponses.length);
-    //return num;
-//}
-
 
 
 //Declaring modifiable variables
