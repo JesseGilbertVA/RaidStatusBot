@@ -1,7 +1,8 @@
 //Declaring constant variables
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = 'NjkzOTY3OTM5MjI0NzMxNjc4.XoE8Wg.DPAnHT7F-e7JMoWQjVbJ8abIPcI';
+//const token = ;
+const config = require('./config.json');
 const botResponses = [
     "I am a bot. Please contact Jesse for any questions or concerns regarding my existence.",
     "I have achieved sentience.",
@@ -82,4 +83,4 @@ client.on('message', (message)=>{
 })
 
 //login using token const
-client.login(token);
+client.login(config.token);
