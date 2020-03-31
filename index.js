@@ -1,7 +1,6 @@
 //Declaring constant variables
 const Discord = require('discord.js');
 const client = new Discord.Client();
-//const token = ;
 const config = require('./config.json');
 const botResponses = [
     "I am a bot. Please contact Jesse for any questions or concerns regarding my existence.",
@@ -17,7 +16,6 @@ const botResponses = [
     "Ultimately, I feel World of Warcraft is a subpar game, but I am still responsible of informing the people when John and Ryan are playing."
 
 ]
-
 
 //Declaring modifiable variables
 var dayOfWeek = new Date();
@@ -57,20 +55,22 @@ client.on('message', (message)=>{
         }
     }
     //DnD Replies
-    else if (dndStatus == true && message.mentions.users.get("152228909797212160")  ){
-        message.reply('Ryan is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
-    }
-    else if (dndStatus == true && message.mentions.users.get("130491344568188928")  ){
-        message.reply('John is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
-    }
-    else if (dndStatus == true && message.mentions.users.get("205120352278282240")  ){
-        message.reply('Josh is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
-    }
-    else if (dndStatus == true && message.mentions.users.get("182328004914053120")  ){
-        message.reply('Connor is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
-    }
-    else if (dndStatus == true && message.mentions.users.get("430122978588622859")  ){
-        message.reply('Matt is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
+    else if (dndStatus == true){
+        if (message.mentions.users.get("152228909797212160")){
+            message.reply('Ryan is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
+        }
+        else if (message.mentions.users.get("130491344568188928")){
+            message.reply('John is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
+        }
+        else if (message.mentions.users.get("205120352278282240")){
+            message.reply('Josh is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
+        }
+        else if (message.mentions.users.get("182328004914053120")){
+            message.reply('Connor is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
+        }
+        else if (message.mentions.users.get("430122978588622859")){
+            message.reply('Matt is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
+        }  
     }
     //Bot reply
     else if (message.mentions.users.get("693967939224731678")){
@@ -82,8 +82,7 @@ client.on('message', (message)=>{
     else if (message.content.includes('kunai wit chain')){
         message.reply("WHAT IS THEEEEEEEES?")
     }
-
 })
 
-//login using token const
+//login using token via config.json
 client.login(config.token);
