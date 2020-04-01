@@ -14,6 +14,7 @@ const botResponses = [
     "I'm not the COVID-19 bot, I am friendlier.",
     "<:God:694236516137828485>",
     "Ultimately, I feel World of Warcraft is a subpar game, but I am still responsible of informing the people when John and Ryan are playing.",
+    ""
 
 ]
 
@@ -23,6 +24,7 @@ var current_date = dayOfWeek.getDay();
 var current_hour = dayOfWeek.getHours();
 var raidStatus = false;
 var dndStatus = false;
+var isBot = false;
 
 //Verify client launches successfully within console log.
 client.on('ready', () =>{
@@ -44,9 +46,25 @@ if (current_date == 0 && current_hour >= 20 && current_hour <= 22){
 
 //Main function of bot. Checks for messages on a loop. If conditions of If or Else If statements are met, reply to who pinged the individual in a busy state.
 client.on('message', (message)=>{
+    //Prevent RaidStatusBot from replying to itself or other bots.
+    if (message.author.bot) return;
+    //"Easter eggs" Simply put here for my enjoyment.
+    if (message.mentions.users.get("693967939224731678")){
+        console.log('The bot was mentioned');
+        message.reply(botResponses[Math.floor(Math.random() * botResponses.length)])
+    }
+    if (message.content.includes('KUNAI WIT CHAIN')){
+        console.log('kunai easter');
+        message.reply("WHAT IS THEEEEEEEES?")
+    }
+    if (message.content.includes('kunai wit chain')){
+        console.log('kunai easter');
+        message.reply("WHAT IS THEEEEEEEES?")   
+    }
     //Raid Replies
-    if(raidStatus == true && message.author != client.user) {
+    if(raidStatus == true) {
         //It's raid time!
+        console.log('Raid status is active');
         if (message.mentions.users.get("152228909797212160")) {
             message.reply('Ryan is currently raiding. Raid hours are Friday 9PM to 12AM and Sunday 4PM to 7PM. Please try him again afterwards.');
         }
@@ -55,7 +73,8 @@ client.on('message', (message)=>{
         }
     }
     //DnD Replies
-    else if (dndStatus == true && message.author != client.user){
+    if (dndStatus == true){
+        console.log('DnD status is active');
         if (message.mentions.users.get("152228909797212160")){
             message.reply('Ryan is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
         }
@@ -72,17 +91,9 @@ client.on('message', (message)=>{
             message.reply('Matt is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
         }  
     }
-    //Bot reply
-    else if (message.mentions.users.get("693967939224731678" && message.author != client.user)){
-        message.reply(botResponses[Math.floor(Math.random() * botResponses.length)])
+
     }
-    else if (message.content.includes('KUNAI WIT CHAIN')){
-        message.reply("WHAT IS THEEEEEEEES?")
-    }
-    else if (message.content.includes('kunai wit chain')){
-        message.reply("WHAT IS THEEEEEEEES?")
-    }
-})
+)
 
 //login using token via config.json
 client.login(config.token);
