@@ -13,8 +13,7 @@ const botResponses = [
     "Are you ready to pay attention to me yet? - Sadie as I was writing this line",
     "I'm not the COVID-19 bot, I am friendlier.",
     "<:God:694236516137828485>",
-    "Ultimately, I feel World of Warcraft is a subpar game, but I am still responsible of informing the people when John and Ryan are playing.",
-    ""
+    "Ultimately, I feel World of Warcraft is a subpar game, but I am still responsible of informing the people when John and Ryan are playing."
 
 ]
 
@@ -24,7 +23,6 @@ var current_date = dayOfWeek.getDay();
 var current_hour = dayOfWeek.getHours();
 var raidStatus = false;
 var dndStatus = false;
-var isBot = false;
 
 //Verify client launches successfully within console log.
 client.on('ready', () =>{
