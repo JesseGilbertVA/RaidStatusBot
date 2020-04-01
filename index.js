@@ -13,7 +13,7 @@ const botResponses = [
     "Are you ready to pay attention to me yet? - Sadie as I was writing this line",
     "I'm not the COVID-19 bot, I am friendlier.",
     "<:God:694236516137828485>",
-    "Ultimately, I feel World of Warcraft is a subpar game, but I am still responsible of informing the people when John and Ryan are playing."
+    "Ultimately, I feel World of Warcraft is a subpar game, but I am still responsible of informing the people when John and Ryan are playing.",
 
 ]
 
@@ -45,7 +45,7 @@ if (current_date == 0 && current_hour >= 20 && current_hour <= 22){
 //Main function of bot. Checks for messages on a loop. If conditions of If or Else If statements are met, reply to who pinged the individual in a busy state.
 client.on('message', (message)=>{
     //Raid Replies
-    if(raidStatus == true) {
+    if(raidStatus == true && message.author != client.user) {
         //It's raid time!
         if (message.mentions.users.get("152228909797212160")) {
             message.reply('Ryan is currently raiding. Raid hours are Friday 9PM to 12AM and Sunday 4PM to 7PM. Please try him again afterwards.');
@@ -55,7 +55,7 @@ client.on('message', (message)=>{
         }
     }
     //DnD Replies
-    else if (dndStatus == true){
+    else if (dndStatus == true && message.author != client.user){
         if (message.mentions.users.get("152228909797212160")){
             message.reply('Ryan is currently playing DnD. DnD hours are Sunday 8PM to 11PM. Please try him again afterwards.');
         }
