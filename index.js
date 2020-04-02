@@ -59,6 +59,9 @@ client.on('message', (message)=>{
         console.log('kunai easter');
         message.reply("WHAT IS THEEEEEEEES?")   
     }
+    if (message.content === "73"){
+        message.react("694236516137828485")
+    }
     //Raid Replies
     if(raidStatus == true) {
         //It's raid time!
